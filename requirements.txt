@@ -3,6 +3,6 @@ numpy
 matplotlib
 seaborn
 sklearn
-pickle
 xgboost
 statsmodels
+imbalanced-learn
