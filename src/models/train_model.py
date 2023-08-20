@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 #---utils---#
 import os
 import joblib
+from pathlib import Path
 
 
 
@@ -71,10 +72,10 @@ def train_model(data, xgboost_param):
 
 def model_metrics(model, data):
     preds = model.predict(data['test']['X'])
-    f1_score = f1_score(data['test']['y'], preds)
+    f1 = f1_score(data['test']['y'], preds)
 
     metrics_dict = {
-        'f1_score': f1_score
+        'f1_score': f1
     }
     return metrics_dict
 
@@ -83,18 +84,19 @@ def main():
     print('Training model...')
     #---data---#
 
-    #patch to data ( it is the second parent directory of this file)
-        # Get the current directory of the script
-    parent_folder = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath('train_model.py'))))
+
 
     #data folder
+    
 
-    #data folder
+    data_path = Path('train_model.py').resolve().parent.parent / 'data' / 'preprocessed'
+    print('data_path: ', data_path)
+    test_path = data_path / 'df_test.csv'
+    train_path = data_path / 'df_train.csv'
+    
+    print('test_path: ', test_path)
+    print('train_path: ', train_path)
 
-    data_folder = os.path.join(parent_folder, 'data','preprocessed')
-
-    test_path = os.path.join(data_folder, 'df_test.csv')
-    train_path = os.path.join(data_folder, 'df_train.csv')
     df_test = pd.read_csv(test_path)
     df_train = pd.read_csv(train_path)
 
@@ -118,9 +120,12 @@ def main():
     # model evaluation
     model_metrics(xgb, data)
 
-    # save model
+    # save model in the same folder
+
     model_name = 'xgboost.pkl'
-    joblib.dump(value=xgb, file_name=model_name)
+    model_path = Path('train_model.py').resolve().parents[0] / model_name
+
+    joblib.dump(xgb, model_path)
 
 
 if __name__ == '__main__':
