@@ -8,11 +8,11 @@ The data comes from the direct marketing efforts of a European banking instituti
 
 Attributes:
 
-age : age of customer (numeric)
+age: age of customer (numeric)
 
-job : type of job (categorical)
+job: type of job (categorical)
 
-marital : marital status (categorical)
+marital: marital status (categorical)
 
 education (categorical)
 
@@ -22,7 +22,7 @@ balance: average yearly balance, in euros (numeric)
 
 housing: has a housing loan? (binary)
 
-loan: has personal loan? (binary)
+loan: has a personal loan? (binary)
 
 contact: contact communication type (categorical)
 
@@ -32,7 +32,7 @@ month: last contact month of year (categorical)
 
 duration: last contact duration, in seconds (numeric)
 
-campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)
+campaign: number of contacts performed during this campaign and for this client (numeric, includes the last contact.
 
 Output (desired target):
 
@@ -42,7 +42,9 @@ y - has the client subscribed to a term deposit? (binary)
 
 Predict if the customer will subscribe (yes/no) to a term deposit (variable y)
 
-## Conclusion
-Random forest and XGBClassifier were the best, because the performe well both on inbalanced test data as well as balanced training data. ALso, the train and test socres are similar, with train score a little higher as espected (?).
+## Methodology
+This approach used features engineering techniques with data exploring and cleaning and tested several classical ML models starting with logistic regression until emsembled trees.
 
-Finally, they beat the scoreline proposed for this project, which was 81%.
+## Conclusion
+Random forest and XGBClassifier were the best because they performed well both on unbalanced test data as well as balanced training data. Also, the train and test scores are similar, with the train score a little higher than expected.
+Finally, both models beat the scoreline proposed for this project, which was 81%.
