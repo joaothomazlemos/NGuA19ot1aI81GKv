@@ -1,14 +1,10 @@
 Background:
 
-We are a small startup focusing mainly on providing machine learning solutions in the European banking market. We work on a variety of problems including fraud detection, sentiment classification and customer intention prediction and classification.
-
-We are interested in developing a robust machine learning system that leverages information coming from call center data.
-
-Ultimately, we are looking for ways to improve the success rate for calls made to customers for any product that our clients offer. Towards this goal we are working on designing an ever evolving machine learning product that offers high success outcomes while offering interpretability for our clients to make informed decisions.
+"Our small startup specializes in delivering machine learning solutions tailored for the European banking sector. Our focus spans diverse challenges, encompassing fraud detection, sentiment classification, and customer intention prediction. Currently, our primary objective is to construct a resilient machine-learning system that harnesses insights from call center data. The ultimate aim is to enhance the success rate of customer calls related to our client's products. We are actively engaged in the design and development of a dynamic machine learning product, aiming for both high success outcomes and interpretability. This ensures our clients can make informed decisions based on the generated insights."
 
 Data Description:
 
-The data comes from direct marketing efforts of a European banking institution. The marketing campaign involves making a phone call to a customer, often multiple times to ensure a product subscription, in this case a term deposit. Term deposits are usually short-term deposits with maturities ranging from one month to a few years. The customer must understand when buying a term deposit that they can withdraw their funds only after the term ends. All customer information that might reveal personal information is removed due to privacy concerns.
+The data comes from the direct marketing efforts of a European banking institution. The marketing campaign involves making a phone call to a customer, often multiple times to ensure a product subscription, in this case, a term deposit. Term deposits are usually short-term deposits with maturities ranging from one month to a few years. The customer must understand when buying a term deposit that they can withdraw their funds only after the term ends. All customer information that might reveal personal information is removed due to privacy concerns.
 
 Attributes:
 
@@ -42,6 +38,11 @@ Output (desired target):
 
 y - has the client subscribed to a term deposit? (binary)
 
-Goal(s):
+## Goal(s):
 
 Predict if the customer will subscribe (yes/no) to a term deposit (variable y)
+
+## Conclusion
+Random forest and XGBClassifier were the best, because the performe well both on inbalanced test data as well as balanced training data. ALso, the train and test socres are similar, with train score a little higher as espected (?).
+
+Finally, they beat the scoreline proposed for this project, which was 81%.
